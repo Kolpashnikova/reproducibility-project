@@ -60,6 +60,14 @@ gss <- gss %>% mutate(samesex = case_when(female == 1 & sp_female == 1 ~ 1,
                                           female == 1 & sp_female == 0 ~ 0,
                                           female == 0 & sp_female == 1 ~ 0))
 
+gss <- gss %>% mutate(province = 0,
+                      province = case_when(PRV == 24 ~ 1,
+                                          PRV == 35 ~ 2,
+                                          PRV == 48 ~ 3,
+                                          PRV == 59 ~ 4,
+                                          province == 0 ~ 0))
+
+
 
 #### subsetting the data ####
 
@@ -84,7 +92,7 @@ gss <- gss %>%
 
 # keep only the variables we will need
 gss <- gss %>%
-  select(c("total_shared", "PRV", "female", "samesex", "AGEC", "married",
+  select(c("total_shared", "province", "female", "samesex", "AGEC", "married",
            "income", "HSDSIZEC", "education", "working", "weight"))
 
 # keep only complete cases (no nas) (resulting in 11004 obs)
