@@ -1,0 +1,5 @@
+library(usethis)
+usethis::use_agpl3_license()
+install.packages("packrat")
+library(packrat)
+packrat::init()

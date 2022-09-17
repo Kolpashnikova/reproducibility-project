@@ -1,0 +1,1 @@
+gss <- read.csv('data/gss-12M0025-E-2017-c-31_F1.csv')
