@@ -1,5 +1,12 @@
-library(usethis)
-usethis::use_agpl3_license()
-install.packages("packrat")
-library(packrat)
-packrat::init()
+install.packages("renv")
+library(renv)
+
+renv::init()
+
+install.packages("rlang")
+library(rlang)
+
+renv::snapshot() 
+
+
+renv::restore() 
