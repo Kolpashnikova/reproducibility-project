@@ -1,4 +1,4 @@
-#### defining categorical vars ####
+#### defining values for categorical vars ####
 
 gss$province <- factor(gss$province, labels = c("Other", "QC", "ON", "AL", "BC"))
 gss$female <- factor(gss$female, labels = c("Male", "Female"))
@@ -7,7 +7,7 @@ gss$married <- factor(gss$married, labels = c("Married"))
 gss$education <- factor(gss$education, labels = c("High school or less", "College or trade", "University or above"))
 gss$working <- factor(gss$working, labels = c("Non-working", "Working"))
 
-#### preparing for output ####
+#### add labels to variables ####
 
 attr(gss$province, "label") <- "Province"
 attr(gss$female, "label") <- "Female"
@@ -20,7 +20,7 @@ attr(gss$education, "label") <- "Education"
 attr(gss$working, "label") <- "Working"
 attr(gss$weight, "label") <- "Survey Weights"
 
-#### descriptive table (weighted) ####
+#### prepare descriptive table (weighted) ####
 
 tbl_svysummary <-
   survey::svydesign(~1, data = gss, weights = ~weight) %>%
@@ -38,6 +38,6 @@ tbl_svysummary <-
 
 tbl_svysummary
 
-#### saving output ####
+#### saving output in a Word document ####
 
 save_as_docx(tbl_svysummary, path = "output/Table_1.docx")

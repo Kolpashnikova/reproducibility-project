@@ -25,6 +25,6 @@ model_3 <- lm(total_shared ~
               weights = weight)
 
 
-#### save output ####
+#### save output in a Word document ####
 
 stargazer(model_1, model_2, model_3, title = "Table 2. Regression Models", type="text", out = "output/Table_2.doc")

@@ -1,0 +1,148 @@
+Shared Housework Tasks in Heterosexual and Same-sex Couples
+================
+Kamila Kolpashnikova
+2022-09-17
+
+## Overview
+
+The code in this replication project uses data from GSS 2017 and
+analyzes shared domestic tasks among heterosexual and same-sex couples
+it using R. One master (shell) file runs all of the scripts, which are
+located in the ‘src’ folder, and creates tables, which can be found in
+‘output’ folder. The replicator should expect the code to run for a few
+minutes.
+
+## Data Availability and Provenance Statements
+
+The data for this project (Canadian General Social Survey 2017) may be
+obtained from Statistics Canada. Researchers interested in access to the
+data may contact Client Services and Dissemination at (613) 951-5979, by
+fax at (613) 951-0387 or by e-mail at <sasd-dssea@statcan.gc.ca>. PUMF
+files can be made available by Statistics Canada.
+
+### Statement about Rights
+
+-   [x] I certify that the author(s) of the code in this repository have
+    legitimate access to and permission to use the data used in this
+    manuscript.
+
+### (Optional, but recommended) License for Data
+
+The code is licensed under a GNU Affero General Public License. See
+[LICENSE.md](LICENSE.md) for details.
+
+### Summary of Availability
+
+-   [ ] All data **are** publicly available.
+-   [x] Some data **cannot be made** publicly available (through
+    Statistics Canada).
+-   [ ] **No data can be made** publicly available.
+
+### Details on each Data Source
+
+The file used in these scripts is “gss-12M0025-E-2017-c-31_F1.csv”. Data
+dictionary and details can be downloaded from [Statistics
+Canada](https://www150.statcan.gc.ca/n1/pub/45-25-0001/cat4/c31_2017.zip).
+
+## Computational requirements
+
+Code presented here was run on Windows OS (Windows 10 Pro).
+
+### Software Requirements
+
+-   R 4.2.1
+    -   packages are listed in renv.lock
+    -   the renv package will install all dependencies other programs.
+        Install renv package, load it, and run renv::restore().
+
+### Memory and Runtime Requirements
+
+The code is not memory intensive.
+
+#### Summary
+
+Approximate time needed to reproduce the analyses on a standard 2022
+Windows machine:
+
+-   [x] \<10 minutes
+-   [ ] 10-60 minutes
+-   [ ] 1-8 hours
+-   [ ] 8-24 hours
+-   [ ] 1-3 days
+-   [ ] 3-14 days
+-   [ ] \> 14 days
+-   [ ] Not feasible to run on a desktop machine, as described below.
+
+#### Details
+
+The code was last run on a \*Intel(R) Core(TM) i7-10610U CPU @ 1.80GHz
+2.30 GHz\*\*. RAM 32.0 GB
+
+## Description of programs/code
+
+-   Script in `src/RUNALL.R` will run all the scripts
+-   Script in `src/cleaning.R` will load the GSS data and re-code
+    variables.
+-   Script in `src/analytic_sample.R` subsets the sample to keep only
+    the variables and observations that will be needed for the
+    subsequent analyses.
+-   Script in `src/descriptive_stats.R` will generate a descriptive
+    statistics table for main variables and store it in ‘output’ folder.
+-   Script in `src/regression_models.R` will generate regression models
+    for the total sample and for subsamples of respondents in
+    heterosexual and same-sex couples.
+
+## Instructions to Replicators
+
+-   clone the repository
+-   set the main ‘reproducibility-project’ as the working directory
+-   install and load renv package
+
+``` r
+install.packages("renv")
+library(renv)
+```
+
+-   load packages from the renv
+
+``` r
+renv::restore() 
+```
+
+-   Create ‘data’ folder and download the data file into it.
+-   Run the following command to run all
+
+``` r
+source("src/RUNALL.R")
+```
+
+## List of tables and programs
+
+The provided code reproduces:
+
+-   [ ] All numbers provided in text in the paper
+-   [x] All tables and figures in the paper
+-   [ ] Selected tables and figures in the paper, as explained and
+    justified below.
+
+| Figure/Table \# | Program                 | Line Number | Output file  | Note |
+|-----------------|-------------------------|-------------|--------------|------|
+| Table 1         | src/descriptive_stats.R | 25-43       | Table_1.docx |      |
+| Table 2         | src/regression_models.R | 3-30        | Table_2.doc  |      |
+|                 |                         |             |              |      |
+
+## References
+
+Statistics Canada. 2020. General Social Survey, Cycle 31, 2017
+\[Canada\]: Family (version 2020-09). Statistics Canada \[producer and
+distributor\], accessed September 10, 2021. ID: gss-12M0025-E-2017-c-31
+
+------------------------------------------------------------------------
+
+## Acknowledgements
+
+Some content on this page was copied from
+[Hindawi](https://www.hindawi.com/research.data/#statement.templates).
+Other content was adapted from [Fort
+(2016)](https://doi.org/10.1093/restud/rdw057), Supplementary data, with
+the author’s permission.
